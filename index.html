@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Меняем фон</title>
+</head>
+<body>
+    <div class="card">
+        <div class="hex-colors">
+            <h1>Новый градиент</h1>
+        </div>
+        <button onclick='createNewGrad()'>Click me</button>
+    </div>
+    <div class="card">
+        <div class="hex-colors">
+            <h1>Случайный цвет</h1>
+        </div>
+        <button onclick='createNewColor()'>Click me</button>
+    </div>
+    <div class="card">
+        <h1>Текущее свойство фона</h1>
+        <h2 id='background'>background: #FFFFFF</h2>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
