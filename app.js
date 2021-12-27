@@ -3,6 +3,7 @@ function createNewGrad() {
 
     let hexcode1 = '#'
     let hexcode2 = '#'
+    
 
     for (let i = 0; i < 6; i++) {
         hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
@@ -15,7 +16,6 @@ function createNewGrad() {
 
 function createNewColor() {
     let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
-
     let newColor = '#'
     for (let i = 0; i < 6; i++) {
         newColor += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
@@ -23,3 +23,11 @@ function createNewColor() {
     document.getElementsByTagName('body')[0].style.background = newColor
     document.getElementById('background').innerHTML='background: ' + document.getElementsByTagName('body')[0].style.background
 }
+
+function copyText() {
+    let copyText = document.querySelector("#background").innerHTML;
+    navigator.clipboard.writeText(copyText)
+    .then(()=> {
+        alert('Свойство фона скопировано')
+    })
+  }

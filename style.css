@@ -20,13 +20,15 @@ body {
 
 button{
     background-color: rgb(70, 39, 182);
+    border: 1px solid black;
     width: 40%;
     display:block;
     position: relative;
-    margin: 0 auto;
+    margin: 5px auto;
     font-size: 1rem;
     color: white;
 }
+
 
 button:hover{
     background-color: rgb(106, 87, 175);
@@ -39,7 +41,6 @@ button:hover{
         width: 30%;
         display:block;
         position: relative;
-        margin:0 auto;
         color: white;
     }
 
