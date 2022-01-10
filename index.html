@@ -10,19 +10,20 @@
 <body>
     <div class="card">
         <h1>Градиент</h1>
-        <input type="color" name="gradColor1" id="gradColor1" onchange='setNewGrad()'>
-        <input type="color" name="gradColor2" id="gradColor2" onchange='setNewGrad()'>
-        <button onclick='createNewGrad()'>Create random</button>
+        <input class='card__color' type="color" name="gradColor1" id="gradColor1" onchange='setNewGrad()'>
+        <input class='card__color' type="color" name="gradColor2" id="gradColor2" onchange='setNewGrad()'>
+        <input class='card__input' type="number" min='0' value='90' max='359' name="gradDirection" id="gradDirection" onchange='setNewGrad()'>
+        <button class='card__button' onclick='createNewGrad()'>Случайно</button>
     </div>
     <div class="card">
         <h1>Выбранный цвет</h1>
         <input type="color" name="newColor" id="newColor" onchange='setNewColor()'>
-        <button onclick='createNewColor()'>Create random</button>
+        <button class='card__button' onclick='createNewColor()'>Случайно</button>
     </div>
     <div class="card">
         <h1>Текущее свойство фона</h1>
         <h2 id='background'>background: #FFFFFF</h2>
-        <button id='copyFunc' onclick='copyText()'>Копировать</button>
+        <button class='card__button' id='copyFunc' onclick='copyText()'>Копировать</button>
     </div>
     <script src="app.js"></script>
 </body>

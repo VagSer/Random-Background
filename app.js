@@ -38,6 +38,6 @@ function setNewColor() {
 }
 
 function setNewGrad() {
-    document.getElementsByTagName('body')[0].style.background = 'linear-gradient(to right, '+ document.querySelector('#gradColor1').value + ', ' + document.querySelector('#gradColor2').value + ')'
-    document.querySelector('#background').innerHTML='background: ' + document.getElementsByTagName('body')[0].style.background
+    document.querySelector('body').style.background = 'linear-gradient('+ document.querySelector('#gradDirection').value+'deg, '+ document.querySelector('#gradColor1').value + ', ' + document.querySelector('#gradColor2').value + ')'
+    document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
 }

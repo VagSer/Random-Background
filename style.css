@@ -6,22 +6,23 @@ body {
     font-size: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background: linear-gradient(to right, #FFFFFF, #FFFFFF);
+    height: 100vh;
 }
 
 .card{
     border: 1px solid black;
     background-color: rgba(139, 139, 139, 0.4);
     text-align: center;
-    margin: 5% 0;
+    margin: 10px auto;
+    width: min(80%, 500px);
     
 }
 
-button{
+.card__button{
     background-color: rgb(70, 39, 182);
     border: 1px solid black;
-    width: 40%;
+    width: min(70%, 210px);
     display:block;
     position: relative;
     margin: 5px auto;
@@ -29,39 +30,12 @@ button{
     color: white;
 }
 
+.card__color,
+.card__input{
+    width: min(70%, 70px);
+}
 
-button:hover{
+
+.card__button:hover{
     background-color: rgb(106, 87, 175);
-}
-
-
-@media (min-width: 480px) { 
-    button{
-        background-color: rgb(70, 39, 182);
-        width: 30%;
-        display:block;
-        position: relative;
-        color: white;
-    }
-
-    .card{
-        width: 90%;
-        margin: 2% auto;
-        display:block;
-        position: relative;
-    }
-}
-
-@media (min-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 1.2rem;
-    }
-
-    .card{
-        width: 70%;
-    }
 }
