@@ -1,6 +1,6 @@
-function createNewGrad() {
-    let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
+function createNewLinearGrad() {
     let hexcode1 = '#'
     let hexcode2 = '#'
 
@@ -8,14 +8,27 @@ function createNewGrad() {
         hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
         hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
     }
-    document.querySelector('#gradColor1').value=hexcode1
-    document.querySelector('#gradColor2').value=hexcode2
-    setNewGrad()
+    document.querySelector('#gradColorL1').value=hexcode1
+    document.querySelector('#gradColorL2').value=hexcode2
+    document.querySelector('#gradDirection').value=Math.floor(Math.random()*359)
+    setNewLinearGrad()
+}
+
+function createNewRadialGrad() {
+    let hexcode1 = '#'
+    let hexcode2 = '#'
+
+    for (let i = 0; i < 6; i++) {
+        hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
+        hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
+    }
+    document.querySelector('#gradColorR1').value=hexcode1
+    document.querySelector('#gradColorR2').value=hexcode2
+    setNewRadialGrad()
 }
 
 
 function createNewColor() {
-    let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
     let newColor = '#'
     for (let i = 0; i < 6; i++) {
         newColor += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
@@ -37,7 +50,12 @@ function setNewColor() {
     document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
 }
 
-function setNewGrad() {
-    document.querySelector('body').style.background = 'linear-gradient('+ document.querySelector('#gradDirection').value+'deg, '+ document.querySelector('#gradColor1').value + ', ' + document.querySelector('#gradColor2').value + ')'
+function setNewRadialGrad() {
+    document.querySelector('body').style.background = 'radial-gradient('+ document.querySelector('#gradColorR1').value + ', ' + document.querySelector('#gradColorR2').value + ')'
+    document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
+}
+
+function setNewLinearGrad() {
+    document.querySelector('body').style.background = 'linear-gradient('+ document.querySelector('#gradDirection').value+'deg, '+ document.querySelector('#gradColorL1').value + ', ' + document.querySelector('#gradColorL2').value + ')'
     document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
 }
