@@ -9,16 +9,15 @@
 </head>
 <body>
     <div class="card">
-        <div class="hex-colors">
-            <h1>Новый градиент</h1>
-        </div>
-        <button onclick='createNewGrad()'>Click me</button>
+        <h1>Градиент</h1>
+        <input type="color" name="gradColor1" id="gradColor1" onchange='setNewGrad()'>
+        <input type="color" name="gradColor2" id="gradColor2" onchange='setNewGrad()'>
+        <button onclick='createNewGrad()'>Create random</button>
     </div>
     <div class="card">
-        <div class="hex-colors">
-            <h1>Случайный цвет</h1>
-        </div>
-        <button onclick='createNewColor()'>Click me</button>
+        <h1>Выбранный цвет</h1>
+        <input type="color" name="newColor" id="newColor" onchange='setNewColor()'>
+        <button onclick='createNewColor()'>Create random</button>
     </div>
     <div class="card">
         <h1>Текущее свойство фона</h1>
