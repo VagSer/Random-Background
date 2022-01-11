@@ -49,7 +49,7 @@ function copyText() {
 
 function setNewColor() {
     document.querySelector('body').style.background = document.querySelector('#newColor').value
-    document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
+    updateBackgroundStyle()
 }
 
 function setNewRadialGrad() {
@@ -63,8 +63,8 @@ function setNewRadialGrad() {
     } else if (document.querySelector('#centerPositionY').value === '-1') {
         document.querySelector('#centerPositionY').value = 100
     }
-    document.querySelector('body').style.background = 'radial-gradient(ellipse at ' + document.querySelector('#centerPositionX').value + '% ' + document.querySelector('#centerPositionY').value + '%, ' + document.querySelector('#gradColorR1').value + ', ' + document.querySelector('#gradColorR2').value + ')'
-    document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
+    document.querySelector('body').style.background = `radial-gradient(ellipse at ${document.querySelector('#centerPositionX').value}% ${document.querySelector('#centerPositionY').value}%, ${document.querySelector('#gradColorR1').value}, ${document.querySelector('#gradColorR2').value})`
+    updateBackgroundStyle()
 }
 
 function setNewLinearGrad() {
@@ -73,8 +73,12 @@ function setNewLinearGrad() {
     } else if (document.querySelector('#gradDirection').value === '-1') {
         document.querySelector('#gradDirection').value = 359
     }
-    document.querySelector('body').style.background = 'linear-gradient('+ document.querySelector('#gradDirection').value+'deg, '+ document.querySelector('#gradColorL1').value + ', ' + document.querySelector('#gradColorL2').value + ')'
-    document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
+    document.querySelector('body').style.background = `linear-gradient(${document.querySelector('#gradDirection').value}deg, ${document.querySelector('#gradColorL1').value}, ${document.querySelector('#gradColorL2').value})`
+    updateBackgroundStyle()
+}
+
+function updateBackgroundStyle() {
+    document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background}`
 }
 
 
