@@ -24,6 +24,8 @@ function createNewRadialGrad() {
     }
     document.querySelector('#gradColorR1').value=hexcode1
     document.querySelector('#gradColorR2').value=hexcode2
+    document.querySelector('#centerPositionX').value=Math.floor(Math.random()*100)
+    document.querySelector('#centerPositionY').value=Math.floor(Math.random()*100)
     setNewRadialGrad()
 }
 
@@ -51,11 +53,28 @@ function setNewColor() {
 }
 
 function setNewRadialGrad() {
-    document.querySelector('body').style.background = 'radial-gradient('+ document.querySelector('#gradColorR1').value + ', ' + document.querySelector('#gradColorR2').value + ')'
+    if (document.querySelector('#centerPositionX').value === '101') {
+        document.querySelector('#centerPositionX').value = 0
+    } else if (document.querySelector('#centerPositionX').value === '-1') {
+        document.querySelector('#centerPositionX').value = 100
+    }
+    if (document.querySelector('#centerPositionY').value === '101') {
+        document.querySelector('#centerPositionY').value = 0
+    } else if (document.querySelector('#centerPositionY').value === '-1') {
+        document.querySelector('#centerPositionY').value = 100
+    }
+    document.querySelector('body').style.background = 'radial-gradient(ellipse at ' + document.querySelector('#centerPositionX').value + '% ' + document.querySelector('#centerPositionY').value + '%, ' + document.querySelector('#gradColorR1').value + ', ' + document.querySelector('#gradColorR2').value + ')'
     document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
 }
 
 function setNewLinearGrad() {
+    if (document.querySelector('#gradDirection').value === '360') {
+        document.querySelector('#gradDirection').value = 0
+    } else if (document.querySelector('#gradDirection').value === '-1') {
+        document.querySelector('#gradDirection').value = 359
+    }
     document.querySelector('body').style.background = 'linear-gradient('+ document.querySelector('#gradDirection').value+'deg, '+ document.querySelector('#gradColorL1').value + ', ' + document.querySelector('#gradColorL2').value + ')'
     document.querySelector('#background').innerHTML='background: ' + document.querySelector('body').style.background
 }
+
+

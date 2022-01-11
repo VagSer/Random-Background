@@ -17,11 +17,13 @@
         <h1>Линейный градиент</h1>
         <input class='card__color' type="color" name="gradColor1" id="gradColorL1" onchange='setNewLinearGrad()'>
         <input class='card__color' type="color" name="gradColor2" id="gradColorL2" onchange='setNewLinearGrad()'>
-        <input class='card__input' type="number" min='0' value='90' max='359' name="gradDirection" id="gradDirection" onchange='setNewLinearGrad()'>
+        <input class='card__input' type="number" min='-1' value='90' max='360' name="gradDirection" id="gradDirection" onchange='setNewLinearGrad()'>
         <button class='card__button' onclick='createNewLinearGrad()'>Случайно</button>
     </div>
     <div class="card">
         <h1>Радиальный градиент</h1>
+        <input class='card__input' type="number" min='-1' value='50' max='101' name="centerPositionX" id="centerPositionX" onchange='setNewRadialGrad()'>
+        <input class='card__input' type="number" min='-1' value='50' max='101' name="centerPositionY" id="centerPositionY" onchange='setNewRadialGrad()'>
         <input class='card__color' type="color" name="gradColor1" id="gradColorR1" onchange='setNewRadialGrad()'>
         <input class='card__color' type="color" name="gradColor2" id="gradColorR2" onchange='setNewRadialGrad()'>
         <button class='card__button' onclick='createNewRadialGrad()'>Случайно</button>

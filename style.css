@@ -30,12 +30,24 @@ body {
     color: white;
 }
 
-.card__color,
+.card__color{
+    width: min(70%, 70px);
+    padding: 3px;
+    height: 30px;
+    margin: 5px 0;
+}
+
 .card__input{
     width: min(70%, 70px);
+    padding: 3px;
+    height: 20px;
+    position: relative;
+    top: -2.5px;
+    margin: 5px 0;
 }
 
 
 .card__button:hover{
     background-color: rgb(106, 87, 175);
+    box-shadow: 0 0 10px rgb(106, 87, 175);
 }
