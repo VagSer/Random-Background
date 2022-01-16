@@ -78,7 +78,7 @@ function setNewLinearGrad() {
 }
 
 function updateBackgroundStyle() {
-    document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background}`
+    document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background};`
 }
 
 

@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right, #FFFFFF, #FFFFFF);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .card{
