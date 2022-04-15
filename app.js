@@ -78,13 +78,13 @@ let setNewLinearGrad = () => {
 let updateBackgroundStyle = () => {
     document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background};`
 }
-//проблемы с цветом (41, 253, 3)
+
 let inverseColor = () => {
     let color = document.querySelector('#newColor').value
     let [colorR, colorG, colorB] = [255 - parseInt(color.slice(1, 3), 16), 255 - parseInt(color.slice(3, 5), 16), 255 - parseInt(color.slice(5), 16)]
     colorR = (colorR < 16)? `0${colorR.toString(16)}` : `${colorR.toString(16)}`
-    colorG = (colorR < 16)? `0${colorG.toString(16)}` : `${colorG.toString(16)}`
-    colorB = (colorR < 16)? `0${colorB.toString(16)}` : `${colorB.toString(16)}`
+    colorG = (colorG < 16)? `0${colorG.toString(16)}` : `${colorG.toString(16)}`
+    colorB = (colorB < 16)? `0${colorB.toString(16)}` : `${colorB.toString(16)}`
     color = `#${colorR}${colorG}${colorB}`
     document.querySelector('#newColor').value = color
     setNewColor()
