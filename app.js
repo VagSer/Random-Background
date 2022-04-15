@@ -1,4 +1,4 @@
-let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+const hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
 let createNewLinearGrad = () => {
     let [hexcode1, hexcode2]  = ['#', '#']
@@ -26,6 +26,15 @@ let createNewRadialGrad = () => {
     setNewRadialGrad()
 }
 
+let createNewColor = () => {
+    let newColor = '#'
+    for (let i = 0; i < 6; i++) {
+        newColor += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
+    }
+    document.querySelector('#newColor').value=newColor
+    setNewColor()
+}
+
 let swapRadialColors = () => {
     [document.querySelector('#gradColorR1').value, document.querySelector('#gradColorR2').value] = [document.querySelector('#gradColorR2').value, document.querySelector('#gradColorR1').value]
     setNewRadialGrad()
@@ -34,15 +43,6 @@ let swapRadialColors = () => {
 let swapLinearColors = () => {
     [document.querySelector('#gradColorL1').value, document.querySelector('#gradColorL2').value] = [document.querySelector('#gradColorL2').value, document.querySelector('#gradColorL1').value]
     setNewLinearGrad()
-}
-
-let createNewColor = () => {
-    let newColor = '#'
-    for (let i = 0; i < 6; i++) {
-        newColor += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
-    }
-    document.querySelector('#newColor').value=newColor
-    setNewColor()
 }
 
 let setNewColor = () => {
@@ -75,10 +75,6 @@ let setNewLinearGrad = () => {
     updateBackgroundStyle()
 }
 
-let updateBackgroundStyle = () => {
-    document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background};`
-}
-
 let inverseColor = () => {
     let color = document.querySelector('#newColor').value
     let [colorR, colorG, colorB] = [255 - parseInt(color.slice(1, 3), 16), 255 - parseInt(color.slice(3, 5), 16), 255 - parseInt(color.slice(5), 16)]
@@ -88,6 +84,18 @@ let inverseColor = () => {
     color = `#${colorR}${colorG}${colorB}`
     document.querySelector('#newColor').value = color
     setNewColor()
+}
+
+let inverseRadialGrad = () => {
+
+}
+
+let inverseLinearGrad = () => {
+    
+}
+
+let updateBackgroundStyle = () => {
+    document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background};`
 }
 
 let copyText = () => {
