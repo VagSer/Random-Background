@@ -93,6 +93,10 @@ let updateBackgroundStyle = () => {
 let inverseColor = () => {
     let color = document.querySelector('#newColor').value
     let [colorR, colorG, colorB] = [255 - parseInt(color.slice(1, 3), 16), 255 - parseInt(color.slice(3, 5), 16), 255 - parseInt(color.slice(5), 16)]
-    document.querySelector('#newColor').value = `#${colorR.toString(16)}${colorG.toString(16)}${colorB.toString(16)}`
+    colorR = (colorR < 10)? `0${colorR.toString(16)}` : `${colorR.toString(16)}`
+    colorG = (colorR < 10)? `0${colorG.toString(16)}` : `${colorG.toString(16)}`
+    colorB = (colorR < 10)? `0${colorB.toString(16)}` : `${colorB.toString(16)}`
+    color = `#${colorR}${colorG}${colorB}`
+    document.querySelector('#newColor').value = color
     setNewColor()
 }

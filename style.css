@@ -27,7 +27,7 @@ body {
 .card__button{
     background-color: rgb(70, 39, 182);
     border: 1px solid black;
-    width: min(70%, 210px);
+    width: min(40%, 150px);
     display:block;
     position: relative;
     margin: 5px auto;
