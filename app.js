@@ -1,31 +1,28 @@
 let hex_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
 let createNewLinearGrad = () => {
-    let hexcode1 = '#'
-    let hexcode2 = '#'
+    let [hexcode1, hexcode2]  = ['#', '#']
 
     for (let i = 0; i < 6; i++) {
         hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
         hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
     }
-    document.querySelector('#gradColorL1').value=hexcode1
-    document.querySelector('#gradColorL2').value=hexcode2
+    [document.querySelector('#gradColorL1').value, document.querySelector('#gradColorL2').value] = [hexcode1, hexcode2]
     document.querySelector('#gradDirection').value=Math.floor(Math.random()*359)
     setNewLinearGrad()
 }
 
 let createNewRadialGrad = () => {
-    let hexcode1 = '#'
-    let hexcode2 = '#'
+    let [hexcode1, hexcode2]  = ['#', '#']
 
     for (let i = 0; i < 6; i++) {
         hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
         hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
     }
-    document.querySelector('#gradColorR1').value=hexcode1
-    document.querySelector('#gradColorR2').value=hexcode2
-    document.querySelector('#centerPositionX').value=Math.floor(Math.random()*100)
-    document.querySelector('#centerPositionY').value=Math.floor(Math.random()*100)
+
+    [document.querySelector('#gradColorR1').value, document.querySelector('#gradColorR2').value]=[hexcode1, hexcode2] // меняем цвет
+    [document.querySelector('#centerPositionX').value, document.querySelector('#centerPositionY').value] = [Math.floor(Math.random()*100), Math.floor(Math.random()*100)] //меняем позицию центра
+
     setNewRadialGrad()
 }
 
@@ -46,14 +43,6 @@ let createNewColor = () => {
     }
     document.querySelector('#newColor').value=newColor
     setNewColor()
-}
-
-let copyText = () => {
-    let bgStyle = document.querySelector("#background").innerHTML;
-    navigator.clipboard.writeText(bgStyle)
-    .then(()=> {
-        alert('Свойство фона скопировано')
-    })
 }
 
 let setNewColor = () => {
@@ -89,14 +78,22 @@ let setNewLinearGrad = () => {
 let updateBackgroundStyle = () => {
     document.querySelector('#background').innerHTML=`background: ${document.querySelector('body').style.background};`
 }
-
+//проблемы с цветом (41, 253, 3)
 let inverseColor = () => {
     let color = document.querySelector('#newColor').value
     let [colorR, colorG, colorB] = [255 - parseInt(color.slice(1, 3), 16), 255 - parseInt(color.slice(3, 5), 16), 255 - parseInt(color.slice(5), 16)]
-    colorR = (colorR < 10)? `0${colorR.toString(16)}` : `${colorR.toString(16)}`
-    colorG = (colorR < 10)? `0${colorG.toString(16)}` : `${colorG.toString(16)}`
-    colorB = (colorR < 10)? `0${colorB.toString(16)}` : `${colorB.toString(16)}`
+    colorR = (colorR < 16)? `0${colorR.toString(16)}` : `${colorR.toString(16)}`
+    colorG = (colorR < 16)? `0${colorG.toString(16)}` : `${colorG.toString(16)}`
+    colorB = (colorR < 16)? `0${colorB.toString(16)}` : `${colorB.toString(16)}`
     color = `#${colorR}${colorG}${colorB}`
     document.querySelector('#newColor').value = color
     setNewColor()
+}
+
+let copyText = () => {
+    let bgStyle = document.querySelector("#background").innerHTML;
+    navigator.clipboard.writeText(bgStyle)
+    .then(()=> {
+        alert('Свойство фона скопировано')
+    })
 }
