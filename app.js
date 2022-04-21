@@ -7,12 +7,15 @@ let createNewLinearGrad = () => {
         hexcode1 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
         hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
     }
+
     [document.querySelector('#gradColorL1').value, document.querySelector('#gradColorL2').value] = [hexcode1, hexcode2]
     document.querySelector('#gradDirection').value=Math.floor(Math.random()*359)
     setNewLinearGrad()
 }
 
 let createNewRadialGrad = () => {
+    [document.querySelector('#centerPositionX').value, document.querySelector('#centerPositionY').value] = [Math.floor(Math.random()*100), Math.floor(Math.random()*100)]
+    
     let [hexcode1, hexcode2]  = ['#', '#']
 
     for (let i = 0; i < 6; i++) {
@@ -20,8 +23,7 @@ let createNewRadialGrad = () => {
         hexcode2 += hex_numbers[Math.floor(Math.random()*hex_numbers.length)]
     }
 
-    [document.querySelector('#gradColorR1').value, document.querySelector('#gradColorR2').value]=[hexcode1, hexcode2] // меняем цвет
-    [document.querySelector('#centerPositionX').value, document.querySelector('#centerPositionY').value] = [Math.floor(Math.random()*100), Math.floor(Math.random()*100)] //меняем позицию центра
+    [document.querySelector('#gradColorR1').value, document.querySelector('#gradColorR2').value] = [hexcode1, hexcode2]
 
     setNewRadialGrad()
 }
@@ -87,11 +89,44 @@ let inverseColor = () => {
 }
 
 let inverseRadialGrad = () => {
+    let [color1, color2] = [document.querySelector('#gradColorR1').value, document.querySelector('#gradColorR2').value]
+    let [colorR1, colorG1, colorB1] = [255 - parseInt(color1.slice(1, 3), 16), 255 - parseInt(color1.slice(3, 5), 16), 255 - parseInt(color1.slice(5), 16)]
+    let [colorR2, colorG2, colorB2] = [255 - parseInt(color2.slice(1, 3), 16), 255 - parseInt(color2.slice(3, 5), 16), 255 - parseInt(color2.slice(5), 16)]
+    colorR1 = (colorR1 < 16)? `0${colorR1.toString(16)}` : `${colorR1.toString(16)}`
+    colorG1 = (colorG1 < 16)? `0${colorG1.toString(16)}` : `${colorG1.toString(16)}`
+    colorB1 = (colorB1 < 16)? `0${colorB1.toString(16)}` : `${colorB1.toString(16)}`
 
+    colorR2 = (colorR2 < 16)? `0${colorR2.toString(16)}` : `${colorR2.toString(16)}`
+    colorG2 = (colorG2 < 16)? `0${colorG2.toString(16)}` : `${colorG2.toString(16)}`
+    colorB2 = (colorB2 < 16)? `0${colorB2.toString(16)}` : `${colorB2.toString(16)}`
+
+    color1 = `#${colorR1}${colorG1}${colorB1}`
+    color2 = `#${colorR2}${colorG2}${colorB2}`
+
+    document.querySelector('#gradColorR1').value = color1
+    document.querySelector('#gradColorR2').value = color2
+    setNewRadialGrad()
 }
 
 let inverseLinearGrad = () => {
-    
+    let [color1, color2] = [document.querySelector('#gradColorL1').value, document.querySelector('#gradColorL2').value]
+
+    let [colorR1, colorG1, colorB1] = [255 - parseInt(color1.slice(1, 3), 16), 255 - parseInt(color1.slice(3, 5), 16), 255 - parseInt(color1.slice(5), 16)]
+    let [colorR2, colorG2, colorB2] = [255 - parseInt(color2.slice(1, 3), 16), 255 - parseInt(color2.slice(3, 5), 16), 255 - parseInt(color2.slice(5), 16)]
+    colorR1 = (colorR1 < 16)? `0${colorR1.toString(16)}` : `${colorR1.toString(16)}`
+    colorG1 = (colorG1 < 16)? `0${colorG1.toString(16)}` : `${colorG1.toString(16)}`
+    colorB1 = (colorB1 < 16)? `0${colorB1.toString(16)}` : `${colorB1.toString(16)}`
+
+    colorR2 = (colorR2 < 16)? `0${colorR2.toString(16)}` : `${colorR2.toString(16)}`
+    colorG2 = (colorG2 < 16)? `0${colorG2.toString(16)}` : `${colorG2.toString(16)}`
+    colorB2 = (colorB2 < 16)? `0${colorB2.toString(16)}` : `${colorB2.toString(16)}`
+
+    color1 = `#${colorR1}${colorG1}${colorB1}`
+    color2 = `#${colorR2}${colorG2}${colorB2}`
+
+    document.querySelector('#gradColorL1').value = color1
+    document.querySelector('#gradColorL2').value = color2
+    setNewLinearGrad()
 }
 
 let updateBackgroundStyle = () => {
